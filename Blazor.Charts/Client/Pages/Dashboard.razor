@@ -7,6 +7,7 @@
     <div class="col-6">
         <div class="chart-wrapper">
             <Chart Id="bar-1"
+                   Type="Chart.ChartType.Bar"
                    Title="2023 Total Sales"
                    Data="@(new[] { 145, 135, 187, 156 })"
                    BackgroundColor="@(new[] { "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850" })"
@@ -17,10 +18,36 @@
     <div class="col-6">
         <div class="chart-wrapper">
             <Chart Id="bar-2"
+                   Type="Chart.ChartType.Bar"
                    Title="2022 Total Sales"
                    Data="@(new[] { 60, 76, 86, 100 })"
                    BackgroundColor="@(new[] { "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850" })"
                    Labels="@(new[] {"Q1", "Q2", "Q3", "Q4"})">
+            </Chart>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="chart-wrapper">
+            <Chart Id="pie-1"
+                   Type="Chart.ChartType.Pie"
+                   Title="2023 Sales By Business Unit"
+                   Data="@(new[] { 145, 135, 187, 156, 34 })"
+                   BackgroundColor="@(new[] { "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850" })"
+                   Labels="@(new[] { "Residential", "Lettings", "Land & New Homes", "Auctions"})">
+            </Chart>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="chart-wrapper">
+            <Chart Id="pie-2"
+                   Type="Chart.ChartType.Pie"
+                   Title="2022 Sales by Business Unit"
+                   Data="@(new[] { 60, 76, 86, 100, 43 })"
+                   BackgroundColor="@(new[] { "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850" })"
+                   Labels="@(new[] { "Residential", "Lettings", "Land & New Homes", "Auctions"})">
             </Chart>
         </div>
     </div>

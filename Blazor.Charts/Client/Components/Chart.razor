@@ -3,8 +3,18 @@
 <canvas id="@Id"></canvas>
 
 @code {
+
+    public enum ChartType
+    {
+        Pie = 1,
+        Bar = 2,
+    };
+
     [Parameter]
     public string Id { get; set; }
+
+    [Parameter]
+    public ChartType Type { get; set; }
 
     [Parameter]
     public string Title { get; set; }
@@ -20,40 +30,15 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        var config = new
-        {
-            Type = "bar",
-            Options = new
-            {
-                Responsive = true,
-                Scales = new
-                {
-                    YAxes = new[]
-                    {
-                        new 
-                        { 
-                            Ticks = new 
-                            {
-                            BeginAtZero=true
-                        } }
-                }
-                }
-            },
-            Data = new
-            {
-                Datasets = new[]
-                {
-                    new 
-                    { 
-                        Data = Data, 
-                        BackgroundColor = BackgroundColor,
-                        Label = Title,
-                    }
-            },
-                Labels = Labels
-            }
-        };
+        var config = GetChartConfig();
 
         await JsRuntime.InvokeVoidAsync("setup", Id, config);
     }
+
+    private object GetChartConfig() => Type switch
+    {
+        ChartType.Bar => ChartConfig.GetBarChartConfig(Data, BackgroundColor, Labels, Title),
+        ChartType.Pie => ChartConfig.GetPieChartConfig(Data, BackgroundColor, Labels, Title),
+        _ => throw new ArgumentException($"Unable to find config for chart type: '{Type}'"),
+    };
 }
