@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Charts.Server", "Server\Blazor.Charts.Server.csproj", "{61DFFF71-5540-4390-87BA-C9CD54C9F4BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Charts.Server", "Server\Blazor.Charts.Server.csproj", "{61DFFF71-5540-4390-87BA-C9CD54C9F4BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Charts.Client", "Client\Blazor.Charts.Client.csproj", "{67E2A941-332B-4476-9FEF-8426EDB6217F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Charts.Client", "Client\Blazor.Charts.Client.csproj", "{67E2A941-332B-4476-9FEF-8426EDB6217F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Charts.Shared", "Shared\Blazor.Charts.Shared.csproj", "{947CBF2E-0D67-463A-A733-54883E0D993F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Charts.Shared", "Shared\Blazor.Charts.Shared.csproj", "{947CBF2E-0D67-463A-A733-54883E0D993F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
