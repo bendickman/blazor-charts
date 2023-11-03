@@ -1,27 +1,41 @@
 ﻿@page "/my-dashboard"
 @using Blazor.Charts.Client.Components
 
-<h3>My Dashboard</h3>
+<h1 class="text-center mb-5">My Dashboard</h1>
 
-<div class="chart-wrapper">
-    <Chart Id="bar-1"
-           Title="2023 Total Sales"
-           Data="@(new[] { 145, 135, 187, 156 })"
-           BackgroundColor="@(new[] { "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850" })"
-           Labels="@(new[] {"Q1", "Q2", "Q3", "Q4"})">
-    </Chart>
+<div class="row">
+    <div class="col-6">
+        <div class="chart-wrapper">
+            <Chart Id="bar-1"
+                   Title="2023 Total Sales"
+                   Data="@(new[] { 145, 135, 187, 156 })"
+                   BackgroundColor="@(new[] { "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850" })"
+                   Labels="@(new[] {"Q1", "Q2", "Q3", "Q4"})">
+            </Chart>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="chart-wrapper">
+            <Chart Id="bar-2"
+                   Title="2022 Total Sales"
+                   Data="@(new[] { 60, 76, 86, 100 })"
+                   BackgroundColor="@(new[] { "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850" })"
+                   Labels="@(new[] {"Q1", "Q2", "Q3", "Q4"})">
+            </Chart>
+        </div>
+    </div>
 </div>
 
 <style>
     .chart-wrapper {
-    padding: 20px;
-    margin-bottom: 2em;
-    position: relative;
-    max-width: 820px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #f4f4f6;
-    border-radius: 10px;
-    box-sizing: border-box;
-}
+        padding: 20px;
+        margin-bottom: 2em;
+        position: relative;
+        max-width: 820px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #f4f4f6;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
 </style>
