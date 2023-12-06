@@ -1,0 +1,10 @@
+﻿@inject IJSRuntime JsRuntime
+
+<button class="btn btn-primary" @onclick="ShowAlert">Call JS from Blazor component</button>
+
+@code {
+    private async Task ShowAlert()
+    {
+        await JsRuntime.InvokeVoidAsync("showAlert", "A message using JsRuntime");
+    }
+}
