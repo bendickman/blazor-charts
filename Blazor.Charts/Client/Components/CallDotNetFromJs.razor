@@ -1,0 +1,27 @@
+﻿@inject IJSRuntime JsRuntime
+@using System.Drawing;
+
+
+<h3>Call DotNet From Js</h3>
+<button class="btn btn-primary" @onclick="PassDotNetInstanceToJavaScript">Call DotNet Method</button>
+
+<p>The window is @(_windowSize.Width) wide and @(_windowSize.Height) high</p>
+
+<hr />
+
+@code {
+    private Size _windowSize;
+
+    [JSInvokable]
+    public void SetWindowSize(Size windowSize)
+    {
+        _windowSize = windowSize;
+        StateHasChanged();
+    }
+
+    private async Task PassDotNetInstanceToJavaScript()
+    {
+        var dotNetObjectReference = DotNetObjectReference.Create(this);
+        await JsRuntime.InvokeVoidAsync("callDotNetInstanceMethod", dotNetObjectReference);
+    }
+}

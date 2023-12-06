@@ -1,0 +1,27 @@
+﻿@inject IJSRuntime JsRuntime
+@using System.Drawing;
+
+<h3>Call Component Method From Js resize event handler</h3>
+<p>The window is @(_windowSize.Width) wide and @(_windowSize.Height) high</p>
+
+<hr />
+
+@code {
+    private Size _windowSize;
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var dotNetObjectReference = DotNetObjectReference.Create(this);
+            await JsRuntime.InvokeVoidAsync("registerResizeHandler", dotNetObjectReference);
+        }
+    }
+
+    [JSInvokable]
+    public void SetWindowSize(Size windowSize)
+    {
+        _windowSize = windowSize;
+        StateHasChanged();
+    }
+}
